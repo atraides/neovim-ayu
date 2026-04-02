@@ -50,7 +50,18 @@ function colors.generate(mirage)
       colors.vcs_removed_bg = '#3E373A'
 
       colors.fg_idle = '#707A8C'
+
+      colors.black = '#0A0000'
+      colors.red = '#F06B5C'
+      colors.green = '#BFE76D'
+      colors.yellow = '#E6B752'
+      colors.blue = '#3BBBF4'
+      colors.magenta = '#D09FFD'
+      colors.cyan = '#84CEB5'
+      colors.white = '#D2D6DC'
+
       colors.warning = '#FFA759'
+      colors.error = '#FF6666'
     else
       colors.accent = '#E6B450'
       colors.bg = '#0B0E14'
@@ -91,6 +102,17 @@ function colors.generate(mirage)
       colors.vcs_removed_bg = '#2D2220'
 
       colors.fg_idle = '#565B66'
+
+      colors.black = '#0A0000'
+      colors.red = '#E6495A'
+      colors.green = '#97C142'
+      colors.yellow = '#E89D37'
+      colors.blue = '#17ACF2'
+      colors.magenta = '#C385FE'
+      colors.cyan = '#84CEB5'
+      colors.white = '#FFFFFF'
+
+      colors.error = '#D95757'
       colors.warning = '#FF8F40'
     end
   else
@@ -133,6 +155,17 @@ function colors.generate(mirage)
     colors.vcs_removed_bg = '#F9EBE4'
 
     colors.fg_idle = '#8A9199'
+
+    colors.black = '#86878C'
+    colors.red = '#F07171'
+    colors.green = '#86B300'
+    colors.yellow = '#EBA400'
+    colors.blue = '#22A4E6'
+    colors.magenta = '#A37ACC'
+    colors.cyan = '#4CBF99'
+    colors.white = '#ADAEB1'
+
+    colors.error = '#D95757'
     colors.warning = '#FA8D3E'
   end
 end
