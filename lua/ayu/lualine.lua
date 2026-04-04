@@ -3,48 +3,51 @@ local M = {}
 
 local colors = require('ayu.colors')
 
-M.mode_color = function(mode, clrs)
+M.mode_color = function(mode, colors)
   local modes = {
-    n = clrs.blue,
-    i = clrs.green,
-    v = clrs.magenta,
-    [' '] = clrs.blue,
-    V = clrs.magenta,
-    c = clrs.warning,
-    no = clrs.warning,
-    s = clrs.opeator,
-    S = clrs.operator,
-    ic = clrs.yellow,
-    R = clrs.green,
-    Rv = clrs.green,
-    cv = clrs.red,
-    ce = clrs.red,
-    r = clrs.cyan,
-    rm = clrs.cyan,
-    ['r?'] = clrs.cyan,
-    ['!'] = clrs.red,
-    t = clrs.red,
+    n = colors.blue,
+    i = colors.green,
+    v = colors.magenta,
+    [' '] = colors.blue,
+    V = colors.magenta,
+    c = colors.warning,
+    no = colors.warning,
+    s = colors.opeator,
+    S = colors.operator,
+    ic = colors.yellow,
+    R = colors.green,
+    Rv = colors.green,
+    cv = colors.red,
+    ce = colors.red,
+    r = colors.cyan,
+    rm = colors.cyan,
+    ['r?'] = colors.cyan,
+    ['!'] = colors.red,
+    t = colors.red,
   }
   return { fg = modes[mode] }
 end
 
-M.styles = {
-  branch = function() return { fg = colors.green, gui = 'bold' } end,
-  filename = function() return { fg = colors.magenta, gui = 'bold' } end,
-  diff = {
-    added = function() return { fg = colors.vcs_added } end,
-    modified = function() return { fg = colors.vcs_modified } end,
-    removed = function() return { fg = colors.vcs_removed } end,
-  },
-  diagnostics = {
-    error = function() return { fg = colors.error } end,
-    warn = function() return { fg = colors.warning } end,
-    info = function() return { fg = colors.cyan } end,
-  },
-  lsp_status = function() return { fg = colors.black, gui = 'bold' } end,
-  location = function() return { fg = colors.fg, gui = 'bold' } end,
-  progress = function() return { fg = colors.fg, gui = 'bold' } end,
-  line_close = function() return { fg = colors.blue, gui = 'bold' } end,
-}
+M.styles = function(component, colors)
+  local components = {
+    branch = { fg = colors.green, gui = 'bold' },
+    filename = { fg = colors.magenta, gui = 'bold' },
+    diff = {
+      added = { fg = colors.vcs_added },
+      modified = { fg = colors.vcs_modified },
+      removed = { fg = colors.vcs_removed },
+    },
+    diagnostics = {
+      error = { fg = colors.error },
+      warn = { fg = colors.warning },
+      info = { fg = colors.cyan },
+    },
+    lsp_status = { fg = colors.black, gui = 'bold' },
+    location = { fg = colors.fg, gui = 'bold' },
+    progress = { fg = colors.fg, gui = 'bold' },
+    line_close = { fg = colors.blue, gui = 'bold' },
+  }
+  return components[component]
+end
 
 return M
