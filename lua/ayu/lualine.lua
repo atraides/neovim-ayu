@@ -1,7 +1,7 @@
 local colors = require('ayu.colors')
 local M = {}
 
-local mode_color = {
+M.mode_colors = {
   n = colors.bright_blue,
   i = colors.green,
   v = colors.magenta,
@@ -22,8 +22,6 @@ local mode_color = {
   ['!'] = colors.red,
   t = colors.red,
 }
-
-M.mode_colors = { fg = mode_color[vim.fn.mode()] }
 
 M.styles = {
   branch = function() return { fg = colors.green, gui = 'bold' } end,
