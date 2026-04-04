@@ -1,36 +1,50 @@
 local colors = require('ayu.colors')
+local M = {}
 
-local ayu = {
-  visual = {
-    a = { fg = colors.bg, bg = colors.accent, gui = 'bold' },
-    b = { fg = colors.accent, bg = colors.panel_bg },
+M.mode_colors = function()
+  local mode_color = {
+    n = colors.bright_blue,
+    i = colors.green,
+    v = colors.magenta,
+    [' '] = colors.blue,
+    V = colors.magenta,
+    c = colors.warning,
+    no = colors.warning,
+    s = colors.opeator,
+    S = colors.operator,
+    ic = colors.yellow,
+    R = colors.green,
+    Rv = colors.green,
+    cv = colors.red,
+    ce = colors.red,
+    r = colors.cyan,
+    rm = colors.cyan,
+    ['r?'] = colors.cyan,
+    ['!'] = colors.red,
+    t = colors.red,
+  }
+  return { fg = mode_color[vim.fn.mode()] }
+end
+
+local _generators = {
+  branch = function() return { fg = colors.green, gui = 'bold' } end,
+  filename = function() return { fg = colors.magenta, gui = 'bold' } end,
+  diff = {
+    added = function() return { fg = colors.vcs_added } end,
+    modified = function() return { fg = colors.vcs_modified } end,
+    removed = function() return { fg = colors.vcs_removed } end,
   },
-  replace = {
-    a = { fg = colors.bg, bg = colors.markup, gui = 'bold' },
-    b = { fg = colors.markup, bg = colors.panel_bg },
+  diagnostics = {
+    error = function() return { fg = colors.error } end,
+    warn = function() return { fg = colors.warning } end,
+    info = function() return { fg = colors.cyan } end,
   },
-  inactive = {
-    a = { fg = colors.fg, bg = colors.panel_bg, gui = 'bold' },
-    b = { fg = colors.fg, bg = colors.panel_bg },
-    c = { fg = colors.fg, bg = colors.panel_bg },
-  },
-  normal = {
-    a = { fg = colors.bg, bg = colors.entity, gui = 'bold' },
-    b = { fg = colors.entity, bg = colors.panel_bg },
-    c = { fg = colors.fg, bg = colors.panel_bg },
-  },
-  insert = {
-    a = { fg = colors.bg, bg = colors.string, gui = 'bold' },
-    b = { fg = colors.string, bg = colors.panel_bg },
-  },
-  command = {
-    a = { fg = colors.bg, bg = colors.constant, gui = 'bold' },
-    b = { fg = colors.constant, bg = colors.panel_bg },
-  },
-  terminal = {
-    a = { fg = colors.bg, bg = colors.string, gui = 'bold' },
-    b = { fg = colors.string, bg = colors.panel_bg },
-  },
+  lsp_status = function() return { fg = colors.black, gui = 'bold' } end,
+  location = function() return { fg = colors.fg, gui = 'bold' } end,
+  progress = function() return { fg = colors.fg, gui = 'bold' } end,
+  line_close = function() return { fg = colors.blue, gui = 'bold' } end,
 }
 
-return ayu
+M.style_fn = function(component) return _generators[component] end
+
+return M
