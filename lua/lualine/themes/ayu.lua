@@ -26,7 +26,7 @@ M.mode_colors = function()
   return { fg = mode_color[vim.fn.mode()] }
 end
 
-local _generators = {
+M.styles = {
   branch = function() return { fg = colors.green, gui = 'bold' } end,
   filename = function() return { fg = colors.magenta, gui = 'bold' } end,
   diff = {
@@ -44,7 +44,5 @@ local _generators = {
   progress = function() return { fg = colors.fg, gui = 'bold' } end,
   line_close = function() return { fg = colors.blue, gui = 'bold' } end,
 }
-
-M.style_fn = function(component) return _generators[component] end
 
 return M
