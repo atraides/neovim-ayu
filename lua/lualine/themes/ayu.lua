@@ -27,22 +27,22 @@ M.mode_colors = function()
 end
 
 M.styles = {
-  branch = function() return { fg = colors.green, gui = 'bold' } end,
-  filename = function() return { fg = colors.magenta, gui = 'bold' } end,
+  branch = { fg = colors.green, gui = 'bold' },
+  filename = { fg = colors.magenta, gui = 'bold' },
   diff = {
-    added = function() return { fg = colors.vcs_added } end,
-    modified = function() return { fg = colors.vcs_modified } end,
-    removed = function() return { fg = colors.vcs_removed } end,
+    added = { fg = colors.vcs_added },
+    modified = { fg = colors.vcs_modified },
+    removed = { fg = colors.vcs_removed },
   },
   diagnostics = {
-    error = function() return { fg = colors.error } end,
-    warn = function() return { fg = colors.warning } end,
-    info = function() return { fg = colors.cyan } end,
+    error = { fg = colors.error },
+    warn = { fg = colors.warning },
+    info = { fg = colors.cyan },
   },
-  lsp_status = function() return { fg = colors.black, gui = 'bold' } end,
-  location = function() return { fg = colors.fg, gui = 'bold' } end,
-  progress = function() return { fg = colors.fg, gui = 'bold' } end,
-  line_close = function() return { fg = colors.blue, gui = 'bold' } end,
+  lsp_status = { fg = colors.black, gui = 'bold' },
+  location = { fg = colors.fg, gui = 'bold' },
+  progress = { fg = colors.fg, gui = 'bold' },
+  line_close = { fg = colors.blue, gui = 'bold' },
 }
 
 return M
