@@ -1,27 +1,32 @@
-local colors = require('ayu.colors')
+
 local M = {}
 
-M.mode_colors = {
-  n = colors.bright_blue,
-  i = colors.green,
-  v = colors.magenta,
-  [' '] = colors.blue,
-  V = colors.magenta,
-  c = colors.warning,
-  no = colors.warning,
-  s = colors.opeator,
-  S = colors.operator,
-  ic = colors.yellow,
-  R = colors.green,
-  Rv = colors.green,
-  cv = colors.red,
-  ce = colors.red,
-  r = colors.cyan,
-  rm = colors.cyan,
-  ['r?'] = colors.cyan,
-  ['!'] = colors.red,
-  t = colors.red,
-}
+local colors = require('ayu.colors')
+
+M.mode_color = function(mode, clrs)
+  local modes = {
+    n = clrs.blue,
+    i = clrs.green,
+    v = clrs.magenta,
+    [' '] = clrs.blue,
+    V = clrs.magenta,
+    c = clrs.warning,
+    no = clrs.warning,
+    s = clrs.opeator,
+    S = clrs.operator,
+    ic = clrs.yellow,
+    R = clrs.green,
+    Rv = clrs.green,
+    cv = clrs.red,
+    ce = clrs.red,
+    r = clrs.cyan,
+    rm = clrs.cyan,
+    ['r?'] = clrs.cyan,
+    ['!'] = clrs.red,
+    t = clrs.red,
+  }
+  return { fg = modes[mode] }
+end
 
 M.styles = {
   branch = function() return { fg = colors.green, gui = 'bold' } end,
