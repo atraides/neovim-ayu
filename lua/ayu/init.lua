@@ -433,9 +433,6 @@ local function set_groups()
     SnacksPickerPathHidden = { link = 'Comment' },
     SnacksPickerPathIgnored = { link = 'Comment' },
     SnacksPickerGitStatusUntracked = { link = 'Special' },
-
-    -- SSN
-    SSNBranch = { fg  = colors.green, bold = true },
   }
 
   groups = vim.tbl_deep_extend('force', groups, type(config.overrides) == 'function' and config.overrides() or config.overrides)
