@@ -2,27 +2,27 @@ local M = {}
 
 local colors = require('ayu.colors')
 
-M.mode_color = function(mode, colors)
+M.mode_color = function(mode, current_colors)
   local modes = {
-    n = colors.blue,
-    i = colors.green,
-    v = colors.magenta,
-    [' '] = colors.blue,
-    V = colors.magenta,
-    c = colors.warning,
-    no = colors.warning,
-    s = colors.opeator,
-    S = colors.operator,
-    ic = colors.yellow,
-    R = colors.green,
-    Rv = colors.green,
-    cv = colors.red,
-    ce = colors.red,
-    r = colors.cyan,
-    rm = colors.cyan,
-    ['r?'] = colors.cyan,
-    ['!'] = colors.red,
-    t = colors.red,
+    n = current_colors.blue,
+    i = current_colors.green,
+    v = current_colors.magenta,
+    [' '] = current_colors.blue,
+    V = current_colors.magenta,
+    c = current_colors.warning,
+    no = current_colors.warning,
+    s = current_colors.opeator,
+    S = current_colors.operator,
+    ic = current_colors.yellow,
+    R = current_colors.green,
+    Rv = current_colors.green,
+    cv = current_colors.red,
+    ce = current_colors.red,
+    r = current_colors.cyan,
+    rm = current_colors.cyan,
+    ['r?'] = current_colors.cyan,
+    ['!'] = current_colors.red,
+    t = current_colors.red,
   }
   return { fg = modes[mode] }
 end
