@@ -40,7 +40,7 @@ M.styles = {
     warn = function() return { fg = colors.warning } end,
     info = function() return { fg = colors.cyan } end,
   },
-  lsp_status = function() return { fg = colors.bright_black, gui = 'bold' } end,
+  lsp_status = function() return { fg = colors.fg_idle, gui = 'bold' } end,
   location = function() return { fg = colors.fg } end,
   progress = function() return { fg = colors.fg, gui = 'bold' } end,
   line_close = function() return { fg = colors.blue, gui = 'bold' } end,
